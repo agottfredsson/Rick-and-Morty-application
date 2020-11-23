@@ -20,6 +20,7 @@ export const Search = () => {
   };
 
   const fetchMore = async () => {
+    setLoading(true);
     setPage(page + 1);
     const result = await getLocations(page + 1);
     let listData = locations;
@@ -38,10 +39,11 @@ export const Search = () => {
           <UIActivityIndicator color="white" size={30} />
         )}
         onEndReached={() => {
-          setLoading(true);
-          fetchMore();
+          if (!loading) {
+            fetchMore();
+          }
         }}
-        renderItem={({ item, index }) => {
+        renderItem={({ item }) => {
           return (
             <Layout
               style={{
@@ -89,7 +91,6 @@ export const Search = () => {
     </SafeAreaView>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

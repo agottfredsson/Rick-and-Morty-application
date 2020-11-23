@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
-import { Text, Layout, List } from "@ui-kitten/components";
+import { List } from "@ui-kitten/components";
 import { getCharacters } from "../../api";
 import { Character } from "../../components/Character";
 import { UIActivityIndicator } from "react-native-indicators";
-import { Items } from "../home/home";
 
 export const Champions = ({ navigation }) => {
   const [characters, setCharacters] = useState([]);
@@ -30,6 +29,17 @@ export const Champions = ({ navigation }) => {
     setLoading(false);
   };
 
+  const renderItem = ({ item }) => {
+    return (
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Detail", { item })}
+        style={{ marginTop: 10 }}
+      >
+        <Character char={item} />
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <List
@@ -41,20 +51,10 @@ export const Champions = ({ navigation }) => {
         )}
         onEndReached={() => {
           if (!loading) {
-            console.log("loading");
             fetchMore();
           }
         }}
-        renderItem={({ item, index }) => {
-          return (
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Detail", { item })}
-              style={{ marginTop: 10 }}
-            >
-              <Character char={item} />
-            </TouchableOpacity>
-          );
-        }}
+        renderItem={renderItem}
       />
     </SafeAreaView>
   );
