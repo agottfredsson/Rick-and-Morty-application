@@ -5,6 +5,6 @@ A React-Native application connected to Rick and Morty API.
 
 Run npm/yarn install
 
-Run npm/yarn start
+then npm/yarn start
 
 Enjoy!
