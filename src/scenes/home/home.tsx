@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   StyleSheet,
   SafeAreaView,
@@ -9,7 +9,7 @@ import {
   ToastAndroid,
   Platform,
 } from "react-native";
-import { Layout, Text, Button } from "@ui-kitten/components";
+import { Text, Button } from "@ui-kitten/components";
 
 export const Items = () => {
   const onPress = () => {
@@ -64,7 +64,7 @@ export const Items = () => {
           additude.
         </Text>
         <Button onPress={onPress} style={styles.button}>
-          <Text category="p1">Test this shit!</Text>
+          <Text category="p1">Test this button!</Text>
         </Button>
       </ScrollView>
     </SafeAreaView>

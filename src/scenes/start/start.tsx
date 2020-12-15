@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, SafeAreaView, Image, Dimensions } from "react-native";
-import { Text, Layout, Button } from "@ui-kitten/components";
+import { Text, Button } from "@ui-kitten/components";
 import start from "../../../assets/start.jpg";
 
 export const Start = ({ navigation }) => {
@@ -9,7 +9,7 @@ export const Start = ({ navigation }) => {
       <Text>Start page</Text>
       <Image source={start} style={styles.background} />
       <Button style={styles.button} onPress={() => navigation.navigate("Tabs")}>
-        <Text>Lets go!</Text>
+        <Text>Go!</Text>
       </Button>
     </SafeAreaView>
   );
@@ -32,5 +32,4 @@ const styles = StyleSheet.create({
     backgroundColor: "yellow",
     alignSelf: "center",
   },
-  z: {},
 });
